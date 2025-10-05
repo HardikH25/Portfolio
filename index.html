@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio – Hardik Hansraj</title>
+    <link rel="icon" type="image/x-icon" href="logo4.jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /*hint*/
+            --primary: #282828;
+            --secondary: #444;
+            --gradient-dark: #080808;
+            --gradient-light: #222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Times New Roman', Times, serif, sans-serif;
+            /*hint*/
+            background: linear-gradient(135deg, #101010 0%, #333 100%);
+            /*hint*/
+            min-height: 100vh;
+            color: white;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: #fff;
+            backdrop-filter: blur(4px);
+            /*hint*/
+            background: rgba(24, 24, 27, 0.88);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2.5rem;
+
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            margin-right: 0.75rem;
+            box-shadow: 0 4px 12px #4448;
+            border: 2px solid black
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            letter-spacing: 1px;
+            transition: background 0.25s, color 0.25s;
+            /*hint*/
+
+        }
+
+        .nav-links a:hover {
+            background: black;
+            color: lightgrey;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 95px;
+            background: linear-gradient(130deg, #18191a 70%, #303234 100%);
+            /*hint*/
+
+        }
+
+        .card {
+            background: linear-gradient(120deg, #141414 85%, #292929 120%);
+            /*hint*/
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 2.3rem 3rem;
+            border-radius: 25px;
+            max-width: 820px;
+            width: 96%;
+            box-shadow: 0 10px 24px rgba(30, 30, 30, 0.19), 0 1.5px 4px rgba(0, 0, 0, 0.14);
+            transition: transform 0.22s, box-shadow 0.17s;
+            animation: floatIn 1s ease;
+            /*hint*/
+
+        }
+
+        /*hint*/
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.014);
+            /*hint*/
+            box-shadow: 0 16px 32px #23232845, 0 2px 6px #32323266;
+            /*hint*/
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 2.1rem;
+            box-shadow: 0 2px 18px #1118;
+            border: 2px solid #222;
+            align-self: flex-start;
+
+        }
+
+
+        .info h1 {
+            font-size: 2.1rem;
+            margin-bottom: 0.7rem;
+            font-style: normal;
+            letter-spacing: 1.5px;
+        }
+
+        .info p {
+            font-size: 1.08rem;
+            line-height: 1.65;
+            font-style: italic;
+            color: lightgray
+        }
+
+        .info button {
+            background: #5b5b5b;
+            color: #f5f5f5;
+            border: none;
+            border-radius: 7px;
+            padding: 0.1rem .87rem;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 1.2px;
+            transition: background 0.24s, color 0.17s;
+
+        }
+
+        .info button:hover {
+            transform: translateY(-2px);
+        }
+
+        .info button a {
+            color: #353535;
+        }
+
+        .social-bar {
+            margin-top: 2.1rem;
+            background: linear-gradient(90deg, #151515 65%, #333 135%);
+            /*hint*/
+            border-radius: 40px;
+            padding: 0.82rem 2.3rem;
+            display: flex;
+            gap: 2.2rem;
+            box-shadow: 0 6px 18px #26262640;
+        }
+
+        .social-bar a {
+            color: white;
+            font-size: 1.52rem;
+            transition: transform 0.17s, color 0.15s;
+            text-shadow: 0 2px 8px black;
+        }
+
+        .social-bar a:hover {
+            color: lightgray;
+            transform: translateY(-3px);
+        }
+
+        .fade-line {
+            border: none;
+            height: 2.2px;
+            width: 82%;
+            margin: 2.3rem auto;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0), #aaa 50%, rgba(0, 0, 0, 0));
+            /*hint*/
+        }
+
+        .aboutme,
+        .titleproject {
+            text-align: center;
+            font-size: 2.0rem;
+            font-weight: 600;
+            margin-top: 60px;
+            margin-bottom: 0;
+            color: white;
+            letter-spacing: 1.2px;
+        }
+
+        .aboutme i,
+        .titleproject i {
+            color: #cfcfcf;
+            font-style: normal;
+            letter-spacing: 1px;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 3px;
+        }
+
+        .skills button {
+            background: #5b5b5b;
+            color: #f5f5f5;
+            border: none;
+            border-radius: 7px;
+            padding: 0.1rem .87rem;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 1.2px;
+            transition: background 0.24s, color 0.17s;
+
+
+        }
+
+        .para,
+        .projectpara {
+            margin: 32px 0 22px 0;
+            padding: 0 60px;
+            color: #cccccc;
+            font-size: 1.03rem;
+            line-height: 1.65;
+            background: rgba(70, 70, 70, 0.13);
+            border-radius: 16px;
+        }
+
+        .Projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 28px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 310px;
+            min-height: 430px;
+            border-radius: 16px;
+            box-shadow: 0 6px 24px #1a222211, 0 1.5px 6px #10101019;
+            background: linear-gradient(115deg, #111 74%, #272727 128%);
+            /*hint*/
+            color: white;
+            font-size: 1rem;
+            overflow: hidden;
+            transition: box-shadow 0.19s, transform 0.12s;
+            border: 1.4px solid #53535355;
+            margin-bottom: 16px;
+        }
+
+        .container:hover {
+            box-shadow: 0 16px 36px #3232321f;
+            transform: scale(1.022) translateY(-2px);
+            border-color: grey;
+        }
+
+        .container img,
+        .container video {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            background: #222;
+        }
+
+        .des {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 18px 17px 9px 17px;
+        }
+
+        .des h2 {
+            text-align: center;
+            font-size: 1.14rem;
+            color: #cbcbcb;
+            text-shadow: 0 1px 2px #3337;
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+
+        @media (max-width: 850px) { /*hint*/
+
+
+            .Projects {
+                gap: 10px;
+            }
+
+            .para,
+            .projectpara {
+                padding: 0 12px;
+            }
+
+            /* Navigation styles for mobile */
+            .nav-links {
+                position: fixed;
+                top: 64px;
+                /* adjust to match your navbar height */
+                right: 0;
+                background: rgba(24, 24, 27, 0.95);
+                height: calc(100vh - 64px);
+                width: 240px;
+                flex-direction: column;
+                gap: 1.8rem;
+                padding: 2rem 1.5rem;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 10;
+            }
+
+            /* Show hamburger icon only on mobile */
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                width: 26px;
+                height: 22px;
+                justify-content: space-between;
+            }
+
+            .hamburger span {
+                display: block;
+                height: 3px;
+                background: white;
+                border-radius: 2px;
+            }
+
+            /* When menu is open, slide nav-links in */
+            .nav-links.open {
+                transform: translateX(0);
+            }
+
+
+            .nav-links li {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 1.2rem;
+            }
+
+            .profile-pic {
+                margin: 0 0 1.0rem 0;
+            }
+
+            .para,
+            .projectpara {
+                padding: 0 4px;
+            }
+
+            .Projects {
+                gap: 7px;
+            }
+        }
+
+        .gitdiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gitsource {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: rgba(49, 48, 48, 0.933);
+            border-radius: 40px;
+        }
+
+        .gitsource a {
+            color: white;
+        }
+
+        .gitsource a:hover {
+            color: rgb(4, 3, 30);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #0e0e0e 66%, #303030 130%);
+            color: #7e7c7c;
+            padding: 3rem 1rem 1rem 1rem;
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+            border-radius: 28px 28px 0 0;
+            box-shadow: 0 -6px 18px #18181820;
+        }
+
+        .contact-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.16rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-section .tagline {
+            font-style: italic;
+            color: #aaa;
+            margin-bottom: 2.2rem;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .contact-form {
+            max-width: 400px;
+            margin: 0 auto 2.3rem auto;
+            /*hint*/
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: #252525;
+            border: none;
+            border-radius: 7px;
+            padding: 0.85rem;
+            color: #ededed;
+            font-size: 0.8rem;
+            box-shadow: 0 0 10px #2e2e2e21;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #888c;
+        }
+
+        .contact-form button {
+            background: #5b5b5b;
+            color: #f5f5f5;
+            border: none;
+            border-radius: 7px;
+            padding: 0.87rem 0;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1.2px;
+            transition: background 0.24s, color 0.17s;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-form button:hover {
+            background: #858585;
+            color: #fff;
+        }
+
+        .contact-info {
+            font-size: 0.97rem;
+            line-height: 1.6;
+            color: #575758;
+        }
+
+        .contact-info a {
+            color: #d1d5db;
+            text-decoration: underline;
+            transition: color 0.19s;
+        }
+
+        .contact-info a:hover {
+            color: #777777;
+        }
+
+        footer {
+            background: linear-gradient(80deg, #101213 60%, #232728 200%);
+            /*hint*/
+            color: lightgrey;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1rem;
+            border-top: 2px solid #353535;
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header class="navbar">
+            <div class="brand">
+                <img src="logo4.jpeg" alt="Logo" class="logo">
+            </div>
+
+
+            <nav>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+
+        </header>
+
+        <div class="hero" id="home">
+            <div class="card">
+                <img src="profilepicture.jpeg" alt="Profile photo" class="profile-pic">
+                <div class="info">
+                    <h1>Hardik Hansraj</h1>
+                    <p>
+                        I am a first-year undergraduate student at Scaler School of Technology, currently exploring and
+                        learning web development. I have a strong interest in problem solving and enjoy coding
+                        challenges
+                        that help me grow my skills.
+
+                    </p>
+                    <button><a href="#projects"> View My Work</a></button>
+                </div>
+            </div>
+            <div class="social-bar">
+                <a href="https://www.linkedin.com/in/hardik-hansraj-79205726a/"><i class="fab fa-linkedin"></i></a>
+                <!--hint-->
+                <a href="https://github.com/HardikH25"><i class="fab fa-github"></i></a><!--hint-->
+                <a href="mailto:hardikhansraj38@gmail.com"><i class="fas fa-envelope"></i></a><!--hint-->
+                <a href="tel:+91-7903401374"><i class="fas fa-phone"></i></a><!--hint-->
+            </div>
+        </div>
+
+        <hr class="fade-line" id="about"><!--hint-->
+        <div class="aboutme"><i>About Me</i></div>
+        <div class="para">
+            <p>
+                I am Hardik Hansraj, a first-year undergraduate at Scaler School of Technology pursuing a degree in
+                Computer
+                Science and Artificial Intelligence. My passion lies in programming languages and problem solving, and I
+                have recently developed a strong interest in web development. Currently, I am sharpening my skills in
+                JavaScript with the goal of becoming a proficient full stack developer. I am dedicated to continuous
+                learning and excited to build impactful and innovative web applications.
+            </p>
+
+            <div class="skills">Skills:
+                <button>HTML</button>
+                <button>CSS</button>
+                <button>JavaScript</button>
+                <button>Java</button>
+            </div>
+
+
+        </div>
+
+        <hr class="fade-line" id="projects">
+        <div class="titleproject"><i>Projects</i></div>
+        <div class="projectpara">
+            <p>
+                This portfolio features projects exploring a range of web development concepts. Highlights include a dog
+                gallery built with CSS Grid layout, a moon orbit animation using CSS transitions, animations, and
+                transforms, plus various geometric shapes created with CSS and transform properties. Beyond these, I
+                have
+                developed numerous projects involving HTML forms, tables, and lists. All projects are neatly aligned
+                using
+                display properties like Grid and Flexbox. Additionally, I have applied media queries to ensure
+                responsiveness across different screen sizes. The current webpage itself demonstrates extensive use of
+                Flexbox, Grid, and media queries to deliver a clean, adaptive layout.
+            </p>
+        </div>
+        <div class="Projects">
+            <div class="container">
+                <img src="example.png" alt="dog_galeery_image">
+                <div class="des">
+                    <h2>Dog Gallery</h2>
+                    <p>
+                        Created my first dog photo gallery using the CSS Grid layout system, arranging images seamlessly
+                        in
+                        organized rows and columns. This project allowed me to experiment with multiple grid attributes,
+                        making the gallery responsive and visually engaging.
+                    </p>
+                </div>
+            </div>
+            <div class="container">
+                <video src="Moon-Orbit.mov" autoplay loop muted playsinline></video>
+                <div class="des">
+                    <h2>Moon Orbit</h2>
+                    <p>
+                        Created an animated scene of the moon orbiting the sun entirely with CSS and keyframes,
+                        simulating
+                        realistic celestial movement. This project allowed me to explore essential CSS animation,
+                        transition, and transform attributes.
+                    </p>
+                </div>
+            </div>
+            <div class="container">
+                <img src="profile_card.jpeg" alt="profile_card_image">
+                <div class="des">
+                    <h2>Profile Card</h2>
+                    <p>
+                        Made a simple profile card using HTML and CSS with Flexbox for layout. Added media queries to
+                        make
+                        it responsive on different screen sizes.
+                    </p>
+                </div>
+            </div>
+            <div class="container">
+                <img src="shapes2.jpeg" alt="shapes_image">
+                <div class="des">
+                    <h2>Shapes</h2>
+                    <p>
+                        Created multiple geometric shapes like triangle, diamond, square, and circle entirely with CSS,
+                        using properties such as border, transform, and border-radius.
+                    </p>
+                </div>
+            </div>
+            <div class="container">
+                <img src="website.jpeg" alt="website_image">
+                <div class="des">
+                    <h2>Profile Website</h2>
+                    <p>
+                        Built a responsive profile website using HTML and CSS, featuring a layout designed with
+                        Grid and Flexbox for alignment and structure. The site adapts to different screen sizes
+                        using media queries.It also includes an interactive form section for user input, styled with
+                        CSS to enhance the overall look.
+                    </p>
+                </div>
+            </div>
+            <div class="container">
+                <img src="ferris_wheel.jpeg" alt="ferris_wheel_img">
+                <div class="des">
+                    <h2>Ferris Wheel</h2>
+                    <p>
+                        Made a Ferris wheel animation using CSS animations and transform properties. The rotation effect
+                        was
+                        created by combining keyframes with transforms to make the wheel and its cabins move smoothly,
+                        giving it a realistic spinning motion.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="gitdiv">
+            <div class="gitsource">
+                <div> You can check all the Projects in my <a
+                        href="https://github.com/HardikH25/Activities_WebDev">GitHub</a> Source Code</div>
+            </div>
+        </div>
+
+        <hr class="fade-line">
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Me</h2>
+            <p class="tagline">Let's Connect.</p>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name">
+                <input type="email" name="email" placeholder="Your Email">
+                <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <div class="contact-info">
+                <p>Mail: hardikhansraj38@gmail.com</p>
+                <p>
+                    LinkedIn - <a href="https://www.linkedin.com/in/hardik-hansraj-79205726a/">LinkedIn</a> | GitHub -
+                    <a href="https://github.com/HardikH25">HardikH25</a>
+                </p>
+                <p>Mobile: +91 7903401374</p>
+            </div>
+        </section>
+        <footer>
+            <p> &copy; 2025 Hardik. All rights reserved.</p>
+        </footer>
+    </main>
+</body>
+
+</html>
